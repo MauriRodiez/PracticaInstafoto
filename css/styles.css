@@ -22,10 +22,10 @@ body{
 
     .container-insta {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 75px 100% 28px;
         grid-template-areas: "header header" "main main" "footer footer";
-        gap: 5px;
+        grid-gap: 5px;
     }
 
     .item {
@@ -68,7 +68,7 @@ body{
 
     /* Main */
 
-    .insta-main {        
+    .insta-main {
         display: flex;
         flex-direction: column;
         grid-area: main;
@@ -78,9 +78,9 @@ body{
     .insta-pic{
         background-color: #fff;
         border: 0.4px solid rgba(34, 34, 34, 0.5);
-        border-radius: 5px;  
+        border-radius: 5px;
         display: inline-grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;     
+        grid-template-columns: repeat (4, 1fr);
         gap: 5px;
         height: 100px;
         margin: 0 10px;
@@ -98,11 +98,11 @@ body{
     .column-pic:nth-child(2n){
         display: none;
     }
-    
+
     .publicacion{
         background-color: #fff;
         border: 0.4px solid rgba(34, 34, 34, 0.5);
-        border-radius: 5px; 
+        border-radius: 5px;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -139,7 +139,7 @@ body{
         color: #222;
         margin-right: 10px;
     }
-    
+
     .img-principal{
         padding: 15px 20px;
     }
@@ -196,9 +196,9 @@ body{
 }
 
 @media screen and (min-width: 600px) {
-    
+
     .insta-pic{
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;   
+        grid-template-columns: repeat(5, 1fr);
     }
 
     .column-pic:nth-child(-n+3){
@@ -213,6 +213,10 @@ body{
 
 @media screen and (min-width:1024px){
 
+    .container-insta {
+        grid-template-areas: "header header" "main aside" "footer footer";
+    }
+
     /*Header */
 
     .insta-header{
@@ -225,46 +229,68 @@ body{
         border-radius: 5px;
         display: block;
         height: 40px;
+        padding: 10px;
         width: 40%;
     }
 
     /* Main */
 
-    .container-insta {
-        grid-template-areas: "header header" "main aside" "footer footer";
+    .insta-main{
+        justify-self: flex-end;
+        width: 90%;
     }
 
     .insta-pic{
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;   
+        grid-template-columns: repeat(7, 1fr);
     }
 
-    .column-pic:nth-child(even){
+    .column-pic:nth-child(n){
         display: block;
     }
 
     .insta-aside{
         display: block;
+        justify-self: flex-end;
+        width: 90%;
     }
 
     /* Aside */
 
     .container-perfil{
         display: flex;
-        flex-direction: column;
+        /* flex-direction: column; */
         gap: 15px;
         margin: 70px auto;
+    }
+
+    .container-datos{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 50%;
     }
 
     .perfil{
         display: flex;
         justify-content: flex-start;
+        margin-bottom: 50px;
         width: 90%;
     }
 
     .perfil::before{
         content: url(../img/ContainerPerfil.png);
     }
-    
+
+    .perfil-min{
+        display: flex;
+        justify-content: flex-start;
+        width: 90%;
+    }
+
+    .perfil-min::before{
+        content: url(../img/ContainerPerfil.png);
+    }
+
     .nick{
         align-self: center;
         margin-top: 10px;
@@ -277,10 +303,34 @@ body{
         font-weight: 500;
     }
 
-    .link{
-        align-self: center;
+    .btn-links{
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        justify-content: space-around;
+        width: 50%;
+    }
+
+    .container-change{
+    }
+
+    .container-change .link{
         font-size: 0.75rem;
-        margin-left: 30%;
+        text-decoration: none;
+    }
+
+    .container-follow{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-top: 15px;
+        height: 50%;
+    }
+
+    .container-follow .link{
+        font-size: 0.75rem;
+        margin-top: 45px;
         text-decoration: none;
     }
 
@@ -295,6 +345,6 @@ body{
         font-size: 0.625rem;
         font-weight: 700;
     }
-    
+
 
 }
